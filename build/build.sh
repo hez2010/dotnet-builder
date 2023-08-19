@@ -100,6 +100,7 @@ fi
 # System.BadImageFormatException: Image is either too small or contains an invalid byte offset or count.
 
 cd "${DIR}"
+.dotnet/dotnet build -c Release /root/DisassemblyLoader/DisassemblyLoader.csproj -o "${CORE_ROOT}"/DisassemblyLoader
 mv .dotnet/ "${CORE_ROOT}"/
 cd "${CORE_ROOT}"/..
 XZ_OPT=-2 tar Jcf "${OUTPUT}" --exclude \*.pdb --transform "s,^./,./dotnet-${VERSION}/," -C Core_Root .
